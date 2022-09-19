@@ -13,7 +13,8 @@ class App extends Component{
     }
 
     componentDidMount(){
-        fetch('http://localhost:3001/informeUsuarioProyecto')
+        //fetch('http://localhost:3001/informeUsuarioProyecto')
+        fetch('http://51.79.66.248:3000/informeUsuarioProyecto')
         .then(res=> res.json())
         .then(proy=>this.setState(()=>{
                 return {informes: proy}
