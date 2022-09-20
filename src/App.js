@@ -1,78 +1,33 @@
 import './App.css';
 import 'bulma/css/bulma.min.css';
-import {Component} from 'react';
-import Tabla from './components/tabla/tabla.component';
-import Footer from './components/footer/footer.component';
+import { Routes, Route } from 'react-router-dom';
+import NavBar from './components/navbar/navbar.component';
+import Home from './routes/home.component';
+import Informes from './routes/informes.component';
+import Proyectos from './routes/proyectos.component';
+import Instancias from './routes/instancias.component';
+import Secciones from './routes/secciones.components';
+import Backlog from './routes/backlogs.components';
+import Usuarios from './routes/usuarios.components';
 
-class App extends Component{
-    constructor(){
-        super();
-        this.state={
-            informes:[]
-        }
-    }
+const App = () =>{
 
-    componentDidMount(){
-        //fetch('http://localhost:3001/informeUsuarioProyecto')
-        fetch('https://codemia-proyectos-production.up.railway.app/informeUsuarioProyecto')
-        .then(res=> res.json())
-        .then(proy=>this.setState(()=>{
-                return {informes: proy}
-        }))
-    }
 
-    render(){
-    const informesHeaders = [
-        {
-            key:'idUsuario',
-            titulo:'id Usuario'
-        },
-        {
-            key:'idProyecto',
-            titulo:'id Instancia Proyecto'
-        },
-        {
-            key:'fecha',
-            titulo:'Fecha Informe'
-        },
-        {
-            key:'comentario',
-            titulo:'Comentario'
-        },
-        {
-            key:'sugerencia',
-            titulo:'Sugerencia'
-        },
-        {
-            key:'recursoSugerencia',
-            titulo:'Recurso para estudiar'
-        },
-        {
-            key:'comentarioRevisor',
-            titulo:'Comentario Revision(solo Jorjon)'
-        },
-        {
-            key:'isApproved',
-            titulo:'Se Publica'
-        },
-    ]
-      return (
-        <div className="App">
-                <div className={'container'}>
-                    <section className='section'>
-                    <h1 className='title'>Informes Semanales</h1>
-                    <br />
-                    <label>Esta informacion es fetcheada de mi base de datos con mi API</label>
-                    <section className='section'>
-                    <Tabla data={this.state.informes} headers={informesHeaders} />
-                    </section>
-                    </section>
-                </div>
-
-                <Footer />
-        </div>
-      );
-    }
+    return(
+        <>
+            <Routes >
+                <Route  path='/' element={<NavBar />}>
+                    <Route  index element={<Home />}/>
+                    <Route  path='/informes' element={<Informes />}/>
+                    <Route  path='/proyectos' element={<Proyectos />}/>
+                    <Route  path='/instancias' element={<Instancias />}/>
+                    <Route  path='/secciones' element={<Secciones />}/>
+                    <Route  path='/backlogs' element={<Backlog />}/>
+                    <Route  path='/usuarios' element={<Usuarios />}/>
+                </Route>
+            </Routes>
+        </>
+    )
 }
 
 export default App;

@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import 'bulma/css/bulma.min.css';
 class Tabla extends Component{
     constructor(){
         super()
@@ -8,6 +7,7 @@ class Tabla extends Component{
         const {data,headers}=this.props
         return (
             <>
+                <div className='table-container'>
                 <table className='table is-bordered'>
                     <thead>
                     <tr>
@@ -33,6 +33,7 @@ class Tabla extends Component{
                 }
                 </tbody>
                 </table>
+                </div>
 
             </>
         )

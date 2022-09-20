@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import 'bulma/css/bulma.min.css';
+import logo from '../../assets/Gherni-color-trim.svg';
 
 class Footer extends Component{
     constructor(){
@@ -9,11 +9,12 @@ class Footer extends Component{
 render(){
         return(
 
-    <footer class="footer">
-      <div class="content has-text-centered">
+    <footer className="footer">
+      <div className="content has-text-centered">
         <p>
           <strong>Seguimiento de Proyectos</strong> by Gherni.
         </p>
+          <img src={logo} width="100" />
       </div>
     </footer>
         )
