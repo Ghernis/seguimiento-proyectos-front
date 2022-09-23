@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
-import Tabla from '../components/tabla/tabla.component';
+//import { useState, useEffect } from 'react';
+import Tabla from '../../components/tabla/tabla.component';
+import { useUsuarios } from './useUsuarios';
 
 const Usuarios = ()=>{
-    const [usuarios, setUsuarios] = useState([]);
+    //const [usuarios, setUsuarios] = useState([]);
     const usuariosHeaders = [
         {
             key:'id',
@@ -41,12 +42,13 @@ const Usuarios = ()=>{
             titulo:'Password'
         },
     ]
-    useEffect(()=>{
-        fetch('https://codemia-proyectos-production.up.railway.app/usuarios')
-            .then(res=> res.json())
-            .then(users=>setUsuarios(users))
+    //useEffect(()=>{
+    //    fetch('https://codemia-proyectos-production.up.railway.app/usuarios')
+    //        .then(res=> res.json())
+    //        .then(users=>setUsuarios(users))
 
-    },[]);
+    //},[]);
+    const usuarios = useUsuarios();
     return (
         <div className={'container'}>
 

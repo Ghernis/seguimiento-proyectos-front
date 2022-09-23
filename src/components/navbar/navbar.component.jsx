@@ -1,10 +1,10 @@
-import {Component} from 'react';
 import logo from '../../assets/Gherni-color-trim.svg';
 import { Outlet, Link } from 'react-router-dom';
 import Footer from '../footer/footer.component';
+import Toast from '../toast/toast.component';
 
-class NavBar extends Component{
-    render(){
+const  NavBar=()=>{
+
         return(
         <>
 <nav className="navbar is-dark has-shadow" role="navigation" aria-label="main navigation">
@@ -55,11 +55,13 @@ class NavBar extends Component{
 
   </div>
 </nav>
+
                 <Outlet />
+                <Toast titulo={'Error raro'} mensaje={'Test de mensaje error'} show={true} color={'is-danger'} />
                 <Footer />
             </>
         )
     }
-}
+
 
 export default NavBar;
