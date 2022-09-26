@@ -1,4 +1,6 @@
+import {usePrefetchInformes} from '../routes/informes/useInformes';
 const Home=()=>{
+    usePrefetchInformes();
     return (
         <>
 

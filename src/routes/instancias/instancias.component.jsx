@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import Tabla from '../components/tabla/tabla.component';
+import Tabla from '../../components/tabla/tabla.component';
+import {useInstancias} from '../instancias/useInstancias';
 
 const Instancias=()=>{
-    const [instancias, setInstancias] = useState([]);
+    //const [instancias, setInstancias] = useState([]);
     const instanciasHeaders = [
         {
             key:'id',
@@ -53,14 +54,15 @@ const Instancias=()=>{
             titulo:'Estado'
         },
     ]
-    useEffect(()=>{
-        fetch('https://codemia-proyectos-production.up.railway.app/instanciasProyectos')
-            .then(res=> res.json())
-            .then(inst=>inst.map(i=>{
-                return {...i,tipoProyecto:i.proyecto.titulo}
-            }))
-            .then(proy=>setInstancias(proy))
-    },[]);
+    //useEffect(()=>{
+    //    fetch('https://codemia-proyectos-production.up.railway.app/instanciasProyectos')
+    //        .then(res=> res.json())
+    //        .then(inst=>inst.map(i=>{
+    //            return {...i,tipoProyecto:i.proyecto.titulo}
+    //        }))
+    //        .then(proy=>setInstancias(proy))
+    //},[]);
+    const instancias = useInstancias()
     return (
         <div className={'container'}>
 

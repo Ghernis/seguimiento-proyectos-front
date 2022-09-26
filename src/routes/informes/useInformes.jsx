@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery,useQueryClient } from '@tanstack/react-query';
 import { axiosInstance } from '../../react-query/axiosInstance';
 import { queryKeys } from '../../react-query/queryKeys';
 
@@ -11,8 +10,12 @@ async function getInformes(){
 
 export function useInformes(){
     const fallback = [];
-    const { data = fallback } = useQuery([queryKeys.informes],getInformes);
-
+    const { data = fallback } = useQuery([queryKeys.informes],getInformes)
     return data
+}
+
+export function usePrefetchInformes(){
+    const queryClient = useQueryClient();
+    queryClient.prefetchQuery([queryKeys.informes],getInformes)
 
 }
