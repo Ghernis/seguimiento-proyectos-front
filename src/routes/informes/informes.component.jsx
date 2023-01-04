@@ -45,7 +45,7 @@ const Informes=()=>{
         },
     ]
 
-    const [selectInforme,setSelectInforme] = useState(2);
+    const [selectInforme,setSelectInforme] = useState(97);
     const [isNext,setIsNext] = useState(true);
     const [isPrev,setIsPrev] = useState(true);
     const informes = useInformes();

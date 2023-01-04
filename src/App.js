@@ -15,6 +15,7 @@ import Instancias from './routes/instancias/instancias.component';
 import Secciones from './routes/secciones.components';
 import Backlog from './routes/backlogs.components';
 import Usuarios from './routes/usuarios/usuarios.components';
+import Publicados from './routes/publicados/publicados.components';
 
 
 const App = () =>{
@@ -33,6 +34,7 @@ const App = () =>{
                         <Route  path='/secciones' element={<Secciones />}/>
                         <Route  path='/backlogs' element={<Backlog />}/>
                         <Route  path='/usuarios' element={<Usuarios />}/>
+                        <Route  path='/publicados' element={<Publicados />}/>
                     </Route>
                 </Routes>
                 <Toaster
